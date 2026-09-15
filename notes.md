@@ -75,3 +75,7 @@ happened.
 
 - `README.md`, saying what this repository is and what you did to it
 - `setup-check.md`, holding the pasted output of the five setup commands
+
+For step 6, I made an uncommitted change to index.html to intentionally break it. Since the file hadn't been committed with that change yet, I ran git status to confirm Git saw it as modified, then used git restore index.html to discard the edit and return the file to its last committed state. This confirmed that uncommitted changes can be undone cleanly, as long as you haven't already committed them.
+
+For step 7, I made a change to index.html, committed it with the message "changed line 24," and pushed it to GitHub — so the change was fully public and part of the shared history. To undo it, I ran git log --oneline to find that commit's ID, then used git revert <commit-id> to create a new commit that reversed the change, rather than deleting the original commit. I pushed that revert commit as well, so the fix is visible in the history too.
